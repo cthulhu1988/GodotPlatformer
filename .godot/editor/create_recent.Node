@@ -1,3 +1,6 @@
+AnimationTree
+AnimationPlayer
+Camera2D
 Panel
 CollisionShape2D
 StaticBody2D
