@@ -34,5 +34,6 @@ func _physics_process(delta):
 		if velocity.y == 0:
 			anim.play("Idle")
 	if velocity.y > 0:
+		# fall
 		anim.play("zfsll")
 	move_and_slide()
