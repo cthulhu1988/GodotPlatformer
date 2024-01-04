@@ -1,3 +1,7 @@
+CollisionShape2D
+Area2D
+AnimatedSprite2D
+CharacterBody2D
 TileMap
 ParallaxLayer
 ParallaxBackground
@@ -5,8 +9,5 @@ AnimationTree
 AnimationPlayer
 Camera2D
 Panel
-CollisionShape2D
 StaticBody2D
-AnimatedSprite2D
-CharacterBody2D
 Button

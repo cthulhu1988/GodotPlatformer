@@ -1,0 +1,139 @@
+[gd_scene load_steps=21 format=3 uid="uid://cptpq56d5tco4"]
+
+[ext_resource type="Script" path="res://frog.gd" id="1_2n56i"]
+[ext_resource type="Texture2D" uid="uid://ci6wnd3vkqth8" path="res://Player/spritesheets/frog-idle.png" id="1_lf4ei"]
+[ext_resource type="Texture2D" uid="uid://ct65h5tgfe4r1" path="res://Player/spritesheets/enemy-deadth.png" id="1_yiwjb"]
+[ext_resource type="Texture2D" uid="uid://b4i6yyq2213x1" path="res://Player/spritesheets/frog-jump.png" id="2_yf4bn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bcs2"]
+size = Vector2(24, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07h3e"]
+atlas = ExtResource("1_yiwjb")
+region = Rect2(0, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqdea"]
+atlas = ExtResource("1_yiwjb")
+region = Rect2(40, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38jt1"]
+atlas = ExtResource("1_yiwjb")
+region = Rect2(80, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjqdl"]
+atlas = ExtResource("1_yiwjb")
+region = Rect2(120, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ma0b7"]
+atlas = ExtResource("1_yiwjb")
+region = Rect2(160, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0x0r"]
+atlas = ExtResource("1_yiwjb")
+region = Rect2(200, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ycps"]
+atlas = ExtResource("1_lf4ei")
+region = Rect2(0, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mc7sp"]
+atlas = ExtResource("1_lf4ei")
+region = Rect2(35, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyhwy"]
+atlas = ExtResource("1_lf4ei")
+region = Rect2(70, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbv3y"]
+atlas = ExtResource("1_lf4ei")
+region = Rect2(105, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8nu8"]
+atlas = ExtResource("2_yf4bn")
+region = Rect2(0, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_813th"]
+atlas = ExtResource("2_yf4bn")
+region = Rect2(35, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ql18j"]
+atlas = ExtResource("2_yf4bn")
+region = Rect2(70, 0, 35, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jtyih"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07h3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqdea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38jt1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjqdl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ma0b7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0x0r")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ycps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mc7sp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyhwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbv3y")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8nu8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_813th")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ql18j")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2lgo0"]
+radius = 68.0661
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_2n56i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0.5)
+shape = SubResource("RectangleShape2D_1bcs2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jtyih")
+animation = &"Idle"
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+shape = SubResource("CircleShape2D_2lgo0")
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
