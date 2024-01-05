@@ -1,4 +1,6 @@
 CollisionShape2D
+Node
+Node2D
 Area2D
 AnimatedSprite2D
 CharacterBody2D
@@ -10,4 +12,3 @@ AnimationPlayer
 Camera2D
 Panel
 StaticBody2D
-Button
