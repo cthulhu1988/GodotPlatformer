@@ -1,3 +1,5 @@
+Label
+CanvasLayer
 CollisionShape2D
 Node
 Node2D
@@ -11,4 +13,3 @@ AnimationTree
 AnimationPlayer
 Camera2D
 Panel
-StaticBody2D
