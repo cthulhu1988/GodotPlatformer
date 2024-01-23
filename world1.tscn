@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ft857p3u2wqp"]
+[gd_scene load_steps=10 format=3 uid="uid://ft857p3u2wqp"]
 
 [ext_resource type="PackedScene" uid="uid://b8cc7ptbx7fhb" path="res://player.tscn" id="1_4ongs"]
 [ext_resource type="Texture2D" uid="uid://thrwp1163dv6" path="res://World/tileset.png" id="1_koi05"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d3inn0asxct2u" path="res://World/Background/back.png" id="3_0ho1f"]
 [ext_resource type="PackedScene" uid="uid://cptpq56d5tco4" path="res://frog.tscn" id="5_fm8hg"]
 [ext_resource type="Script" path="res://HP.gd" id="6_w6vou"]
+[ext_resource type="Script" path="res://Gold.gd" id="7_kd26t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tis0m"]
 texture = ExtResource("1_koi05")
@@ -453,3 +454,13 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.352941, 0.352941, 0.352941, 1)
 theme_override_font_sizes/font_size = 25
 script = ExtResource("6_w6vou")
+
+[node name="Gold" type="Label" parent="\\UI"]
+offset_left = 225.0
+offset_top = 22.0
+offset_right = 415.0
+offset_bottom = 97.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.352941, 0.352941, 0.352941, 1)
+theme_override_font_sizes/font_size = 25
+script = ExtResource("7_kd26t")

@@ -249,6 +249,7 @@ shape = SubResource("CapsuleShape2D_7tvhl")
 sprite_frames = SubResource("SpriteFrames_fc8li")
 animation = &"Jump"
 autoplay = "Run"
+frame = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.6, 1.6)

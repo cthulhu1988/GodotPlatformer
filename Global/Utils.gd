@@ -20,5 +20,6 @@ func loadGame():
 		if not file.eof_reached():
 			var currentline = JSON.parse_string(file.get_line())
 			if currentline:
-				Game.playerHP = float(currentline["playerHP"])
+				var HP = float(currentline["playerHP"])
+				Game.playerHP = HP if HP > 0 else 5
 				Game.Gold = float(currentline["gold"])
